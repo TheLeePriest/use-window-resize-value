@@ -15,12 +15,12 @@ npm install --save use-window-resize-value
 ```jsx
 import React, { Component } from 'react'
 
-import { useMyHook } from 'use-window-resize-value'
+import { useWindowResizeValue } from 'use-window-resize-value'
 
 const Example = () => {
-  const example = useMyHook()
+  const windowWidth = useWindowResizeValue()
   return (
-    <div>{example}</div>
+    <div>{windowWidth}</div>
   )
 }
 ```
