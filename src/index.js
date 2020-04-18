@@ -1,21 +1,20 @@
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 
-export const useMyHook = () => {
-  let [{
-    counter
-  }, setState] = React.useState({
-    counter: 0
-  })
+export const useWindowResizeValue = () => {
+  const getWindowWidth = () => window.innerWidth
+  const [windowWidth, setWindowWidth] = useState(getWindowWidth())
 
-  React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter++
-      setState({counter})
-    }, 1000)
+  useEffect(() => {
+    const resize = () => {
+      setWindowWidth(getWindowWidth())
+    }
+
+    window.addEventListener('resize', resize)
+
     return () => {
-      window.clearInterval(interval)
+      window.removeEventListener('resize', resize)
     }
   }, [])
 
-  return counter
+  return windowWidth
 }

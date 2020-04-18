@@ -1,11 +1,11 @@
 import React from 'react'
-import { useMyHook } from 'use-window-resize-value'
+import { useWindowResizeValue } from 'use-window-resize-value'
 
 const App = () => {
-  const example = useMyHook()
+  const windowWidth = useWindowResizeValue()
   return (
     <div>
-      {example}
+      {windowWidth}
     </div>
   )
 }
